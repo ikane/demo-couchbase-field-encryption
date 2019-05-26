@@ -22,7 +22,7 @@ public class Person {
     @Field
     private String firstName;
 
-    @Encrypted
+    @Encrypted(format = "test")
     @Field
     private String lastName;
 

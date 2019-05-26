@@ -31,6 +31,10 @@ public class AbstractEncryptionEventListener<T> extends AbstractCouchbaseEventLi
             Object fieldValue = doc.get(fieldName);
 
             if (classField.isAnnotationPresent(Encrypted.class)) {
+
+                Encrypted encrypted = classField.getAnnotation(Encrypted.class);
+                String format = encrypted.format();
+
                 // direct encryption
                 doc.put(fieldName, ((String)fieldValue) + "-encrypted");
             }
